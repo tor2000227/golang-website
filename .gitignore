@@ -1,0 +1,7 @@
+.env
+.env.local
+/vendor/
+.idea/
+.vscode/
+*.db
+/bin/
