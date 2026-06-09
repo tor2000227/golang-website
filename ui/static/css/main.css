@@ -207,3 +207,82 @@ td pre, td code {
 	color: #34495E;
 	font-size: 1.25rem;
 }
+form {
+    background-color: #FAFAFA;
+    border: 1px solid #E4E5E7;
+    border-radius: 2px;
+    padding: 30px;
+    margin-bottom: 24px;
+}
+form > div {
+    margin-bottom: 20px;
+}
+form > div {
+    margin-bottom: 0;
+}
+form > div:last-child {
+    margin-bottom: 0;
+}
+form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #34495E;
+    font-weight: bold;
+    font-size: 14px;
+}
+form input[type="text"],
+form textarea {
+    width: 100%;    
+    padding: 10px;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #4A4A4A;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+    border-color: #34495E;
+    outline: none;
+
+}
+
+form textarea {
+    height: 250px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+form input[type="radio"] {
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+form div:has(input[type="radio"]) label {
+    margin-bottom: 12px;
+}
+
+form div input[type="radio"] + text,
+form div {
+    font-size: 15px;
+    color: #4A4A4A;
+}
+
+form input[type="submit"] {
+    background-color: #4A4A4A;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+form input[type="submit"]:hover {
+    background-color: #16d057;
+    border-radius: 8px;
+    color: #1a1a2e;
+    
+}

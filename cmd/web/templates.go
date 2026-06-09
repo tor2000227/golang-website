@@ -2,14 +2,18 @@ package main
 
 import (
 	"html/template"
+	"net/url"
 	"path/filepath"
 
-	"kipkurui.net/snippetbox/pkg/models"
 	"time"
+
+	"kipkurui.net/snippetbox/pkg/models"
 )
 
 type templateData struct {
 	CurrentYear int
+	FormData	url.Values
+	FormErrors	map[string]string
 	Snippet		*models.Snippet
 	Snippets	[]*models.Snippet
 }
