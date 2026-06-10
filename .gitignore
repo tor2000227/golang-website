@@ -5,3 +5,7 @@
 .vscode/
 *.db
 /bin/
+tls/
+*.pem
+*.crt
+*.key
