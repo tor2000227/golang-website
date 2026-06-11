@@ -40,22 +40,47 @@ header a:hover {
 nav {
     background-color: #1a1a2e;
     display: flex;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav > div {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
 }
 nav a {
-    color: #ffffff;
-    text-decoration: underline;
+
+    text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    padding: 0.5rem 1 rem;
-    border-radius: 50%;
-    transition: all 0.2s ease;
+    padding: 0.25rem 0;
+    
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 nav a:hover ,a:active{
     
-    color: #e94560;
+    color: #4ef0a0;
+}
+nav form {
+    display: inline;
+}
+nav button[type="submit"] {
+    background-color: #ff4a5a;
+    border: none;
+    color: #ffffff;
+    
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+nav button[type="submit"]:hover {
+    
+    background-color: #e03444;
 }
 section {
     background-color: #1a1a2e;

@@ -21,6 +21,7 @@ type application struct {
 	snippets *mysql.SnippetModel
 	templateCache map[string]	*template.Template
 	session  *sessions.Session
+	users	 *mysql.UserModel
 }
 
 
@@ -40,7 +41,7 @@ func main() {
 		*dsn = os.Getenv("SNIPPETBOX_DSN")
 	}
 	if *dsn == "" {
-		errorLog.Fatal("MySQL DSN is required via -dsn flag or SNIPPETBOX_DSN env var")
+		errorLog.Fatal("SNIPPETBOX_DSN")
 	}
 
 	db, err := openDB(*dsn)
@@ -66,6 +67,7 @@ func main() {
 		session:  session,
 		snippets: &mysql.SnippetModel{DB: db},
 		templateCache: templateCache,
+		users: &mysql.UserModel{DB: db},
 	}
 
 	tlsConfig := &tls.Config{
