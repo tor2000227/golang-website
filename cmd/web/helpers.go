@@ -1,11 +1,15 @@
 package main
 
 import (
+	
 	"bytes"
 	"fmt"
 	"net/http"
 	"runtime/debug"
 	"time"
+
+	"github.com/justinas/nosurf"
+	"kipkurui.net/snippetbox/pkg/models"
 )
 
 func (app *application) serverError (w http.ResponseWriter, err error) {
@@ -27,6 +31,8 @@ func (app *application) addDefaultData(td *templateData, r *http.Request) *templ
 	if td == nil {
 		td = &templateData{}
 	}
+	td.CSRFToken = nosurf.Token(r)
+	td.AuthenticatedUser = app.authenticatedUser(r)
 	td.CurrentYear = time.Now().Year()
 	td.Flash = app.session.PopString(r, "flash")
 	return td
@@ -49,5 +55,11 @@ func(app *application) render(w http.ResponseWriter, r *http.Request, name strin
 	buf.WriteTo(w)
 
 }
-
+func (app *application) authenticatedUser(r *http.Request) *models.User{
+	user, ok := r.Context().Value(contextKeyUser).(*models.User)
+	if !ok {
+		return nil
+	}
+	return user
+} 
 
